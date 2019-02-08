@@ -2,12 +2,17 @@ import React, { Component } from 'react';
 
 class Generator extends Component {
 
-
   state = {
     values: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '!', "@", '#', '$', '%', '^', '&', '*', '(', ')'],
     letterPick: "",
-    passwordLength: '8',
+    passwordLength: 0
+    // otherState: [
+    //   { phrase: '**this is the other state**', aged: '37' },
+    //   { otherPhrase: 'and another one', aged: '56' }
+    // ]
   }
+
+
 
   createRandomPassword = () => {
     const randomlyGetValue = (anything) => {
@@ -16,11 +21,9 @@ class Generator extends Component {
 
     let newPasswordArray = [];
 
-
     for (let i = 0; i < this.state.passwordLength; i++) {
       newPasswordArray.push(randomlyGetValue(this.state.values))
     }
-
     return newPasswordArray.join('')
   }
 
@@ -33,12 +36,42 @@ class Generator extends Component {
     })
   }
 
+  handleChange = (event)=>{
+    let usersInput = event.target.value
+    /* let usersInputConvertedToLength = usersInput.length;
+     or in otherwords*/
+    let passwordLength = parseInt(usersInput)
+    this.setState({
+      passwordLength:passwordLength
+    })
+  }
 
+
+  // Render will show all fucntions and state abovev
   render() {
     return (
       <div>
-        <p>Click the button to generate a random 8 character password: {this.state.letterPick}</p>
+        
+
+
+        <form onClick={this.handlePasswordLengthClick}>
+          <label>
+            how long do you want your password to be enter a number:
+          <input type="number" 
+          value={this.state.value} 
+          onChange={this.handleChange}
+           />
+          </label>
+           
+          <p>
+          Here's your password: 
+        {this.state.letterPick}</p>
+        </form>
+
+
         <button onClick={this.handleRandomAlphabet}>Button </button>
+        {/* I'm just throwing this state below to better understand it's useless but useful to me :) */}
+        {/* <h4>{this.state.otherState[0].phrase} & <h4>{this.state.otherState[1].otherPhrase}</h4></h4> */}
       </div>
     )
   }
