@@ -64,7 +64,7 @@ class Generator extends Component {
         </form>
 
 
-        <button onClick={this.handleRandomAlphabet}>Button </button>
+        <button onClick={this.handleRandomAlphabet}>click to generate </button>
         {/* I'm just throwing this state below to better understand it's useless but useful to me :) */}
         {/* <h4>{this.state.otherState[0].phrase} & <h4>{this.state.otherState[1].otherPhrase}</h4></h4> */}
       </div>
