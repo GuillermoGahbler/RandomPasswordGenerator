@@ -6,10 +6,7 @@ class Generator extends Component {
     values: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '!', "@", '#', '$', '%', '^', '&', '*', '(', ')'],
     letterPick: "",
     passwordLength: 0
-    // otherState: [
-    //   { phrase: '**this is the other state**', aged: '37' },
-    //   { otherPhrase: 'and another one', aged: '56' }
-    // ]
+     
   }
 
 
@@ -47,20 +44,18 @@ class Generator extends Component {
   }
 
 
-  // Render will show all fucntions and state abovev
+  // Render will show all fucntions and state above
   render() {
     return (
       <div>
         
-
-
         <form onClick={this.handlePasswordLengthClick}>
-          <label>
-            how long do you want your password to be enter a number:
+          <label> How long do you want your password to be? Enter a number:
           <input type="number" 
           value={this.state.value} 
           onChange={this.handleChange}
            />
+           <h5>you can generate or change length as much as you'd like</h5>
           </label>
            
           <p>
